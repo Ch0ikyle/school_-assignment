@@ -23,7 +23,7 @@
              large
              block
              color="primary"
-             @click="signup()"
+             @click="signup"
             >회원가입</v-btn>
           </div>
         </v-card>
@@ -33,31 +33,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
-      email: null,
-      password: null,
-      allUsers: [
-        {id:1, name: 'genie', email:'genie@geniesoft.io', password:'12345'},
-        {id:2, name: 'test', email:'test@geniesoft.io', password:'12345'}
-      ]
+      email: '',
+      password: ''
     }
   },
   methods: {
-    signup() {
-     axios.post('http://localhost:3000/api/user', {
+    signup () {
+      console.log(this.email, this.password)
+      axios.post('http://localhost:3000/api/user', {
         email: this.email,
         password: this.password
         // user: 'postMan'
       })
         .then((r) => {
           this.pop('사용자 등록 완료')
-          this.getUsers() // 데이터갱신
+          this.email = ''
+          this.password = ''
         })
         .catch((e) => {
           console.error(e.message)
-          this.pop('e.message')
         })
     }
   }

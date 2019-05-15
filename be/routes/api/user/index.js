@@ -24,9 +24,11 @@ router.post('/', (req, res, next) => {
   const u = new User({ email, password })
     u.save()
       .then(r => {
+        console.log("데이터베이스 저장 성공");
         res.send({ success: true, msg: r })
       })
       .catch(e => {
+        console.log("실패..")
         res.send({ success: false, msg: e.message })
       })
 })

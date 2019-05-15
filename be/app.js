@@ -103,3 +103,7 @@ mongoose.connect('mongodb://localhost:27017/local', { useNewUrlParser: true }, (
   //     .catch(e => console.error(e))
 
 })
+
+app.listen(3000, function() {
+  console.log('server listening on port 3000');
+})
