@@ -3,7 +3,7 @@
     <v-layout row wrap align-center>
       <v-flex xs12>
         <v-toolbar flat>
-         <v-toolbar-title>로그인</v-toolbar-title>
+         <v-toolbar-title>회원가입</v-toolbar-title>
        </v-toolbar>
         <v-card>
           <div class="pa-3">
@@ -23,7 +23,7 @@
              large
              block
              color="primary"
-             @click="login()"
+             @click="signup()"
             >로그인</v-btn>
           </div>
         </v-card>
