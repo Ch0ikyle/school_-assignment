@@ -3,22 +3,6 @@ var createError = require('http-errors');
 var router = express.Router();
 const User = require('../../../models/users')
 
-
-// router.get('/', function(req, res, next) {
-//   const us = [
-//     {
-//       name: '테스트1',
-//       age: 14
-//     },
-//     {
-//       name: '테스트2',
-//       age: 24
-//     }
-//   ]
-//   res.send({ users: us })
-// });
-
-
 module.exports = router;
 
   //Restful
@@ -32,16 +16,12 @@ module.exports = router;
         res.send({ success : false})
       })
 
-  // console.log(req.query)
-  // console.log(req.body)
-  //
-  // res.send({ users: us })
 });
 
 router.post('/', (req, res, next) => {
 
-  const { name, age } = req.body
-  const u = new User({ name, age })
+  const { email, password } = req.body
+  const u = new User({ email, password })
     u.save()
       .then(r => {
         res.send({ success: true, msg: r })
@@ -49,10 +29,6 @@ router.post('/', (req, res, next) => {
       .catch(e => {
         res.send({ success: false, msg: e.message })
       })
-
-  // console.log(req.query)
-  // console.log(req.body)
-  // res.send({ success: true, msg: 'post ok' })
 })
 
 router.put('/:id', (req, res, next) => {
