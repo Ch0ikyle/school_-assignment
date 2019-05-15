@@ -46,22 +46,21 @@ export default {
   },
   methods: {
     signup() {
-      // 전체 유저에서 해당 이메일로 유저를 찾는다.
-      let selectUser = null
-      this.allUsers.forEach(user =>{
-        if(user.email === this.email) selectUser = user
+     axios.post('http://localhost:3000/api/user', {
+        email: this.email,
+        password: this.password
+        // user: 'postMan'
       })
-      if (selectUser === null) alert('입력하신 이메일이 없습니다')
-        else{
-        if(selectUser.password !== this.password)
-          alert('이메일과 비밀번호가 일치하지 않습니다.')
-          else{
-          alert('로그인 완료')
-        }
-      }
-      // 그 유저의 비밀번호와 입력된 비밀번호를 비교한다.
-      console.log(this.email, this.password)
+        .then((r) => {
+          this.pop('사용자 등록 완료')
+          this.getUsers() // 데이터갱신
+        })
+        .catch((e) => {
+          console.error(e.message)
+          this.pop('e.message')
+        })
     }
   }
 }
+
 </script>
