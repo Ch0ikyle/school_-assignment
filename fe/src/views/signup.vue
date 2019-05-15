@@ -24,7 +24,7 @@
              block
              color="primary"
              @click="signup()"
-            >로그인</v-btn>
+            >회원가입</v-btn>
           </div>
         </v-card>
       </v-flex>
@@ -45,7 +45,7 @@ export default {
     }
   },
   methods: {
-    login() {
+    signup() {
       // 전체 유저에서 해당 이메일로 유저를 찾는다.
       let selectUser = null
       this.allUsers.forEach(user =>{
