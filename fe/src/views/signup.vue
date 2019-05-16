@@ -19,6 +19,16 @@
                 type="password"
             >
             </v-text-field>
+            <v-text-field
+              v-model="name"
+              label="이름을 입력하세요"
+            >
+            </v-text-field>
+            <v-text-field
+              v-model="age"
+              label="나이를 입력하세요"
+            >
+            </v-text-field>
             <v-btn
              large
              block
