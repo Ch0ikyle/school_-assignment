@@ -15,78 +15,7 @@
         </v-card-actions>
       </v-card>
     </v-flex>
-    <!-- <v-flex xs12 sm3>
-        <v-card>
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">get</h3>
-            </div>
-          </v-card-title>
-          <v-card-text>
-            <v-textarea v-model='getMd'>
-            </v-textarea>
-          </v-card-text>
 
-          <v-card-actions>
-            <v-btn flat color="orange" @click="getReq">submit</v-btn>
-          </v-card-actions>
-
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm3>
-        <v-card>
-
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">post</h3>
-            </div>
-          </v-card-title>
-          <v-card-text>
-            <v-textarea v-model='postMd'>
-            </v-textarea>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-btn flat color="orange" @click="postReq">submit</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm3>
-        <v-card>
-
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">put</h3>
-            </div>
-          </v-card-title>
-          <v-card-text>
-            <v-textarea v-model='putMd'>
-            </v-textarea>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-btn flat color="orange" @click="putReq">submit</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm3>
-        <v-card>
-
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">del</h3>
-            </div>
-          </v-card-title>
-          <v-card-text>
-            <v-textarea v-model='delMd'>
-            </v-textarea>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-btn flat color="orange" @click="delReq">submit</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-flex> -->
     <v-btn absolute dark fab bottom right color="pink" @click="mdUp">
       <v-icon>add</v-icon>
     </v-btn>
@@ -101,7 +30,11 @@
         <v-container grid-list-md>
           <v-layout wrap>
             <v-flex xs12 sm6 md4>
-              <v-text-field label="Legal last name" hint="example of persistent helper text" persistent-hint required v-model="userName"></v-text-field>
+              <v-text-field
+                label="Legal last name"
+                hint="example of persistent helper text"
+                persistent-hint required
+                v-model="userName"></v-text-field>
             </v-flex>
             <v-flex xs12 sm6>
               <v-select :items="userAges" label="Age" required v-model="userAge"></v-select>

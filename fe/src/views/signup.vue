@@ -50,7 +50,8 @@ export default {
         // user: 'postMan'
       })
         .then((r) => {
-          this.pop('사용자 등록 완료')
+          // this.pop('사용자 등록 완료');
+          console.log('사용자 등록 완료');
           this.email = ''
           this.password = ''
         })
