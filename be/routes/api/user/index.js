@@ -2,6 +2,7 @@ var express = require('express');
 var createError = require('http-errors');
 var router = express.Router();
 const User = require('../../../models/users')
+const Account = require('../../../models/accounts')
 
 module.exports = router;
 
@@ -31,6 +32,14 @@ router.post('/', (req, res, next) => {
         console.log("실패..")
         res.send({ success: false, msg: e.message })
       })
+})
+
+router.post('/signup2', (req, res, next) => {
+  const { email, password, name, age } = req.body
+  const u = new Account({ email, password, name, age})
+  u.save().then(r => { console.log("데이터베이스 저장 성공");
+  res.send({success:true, msg:r})}).catch(e => { console.log("실패..");
+  res.send({success:false, msg:e.mssage})});
 })
 
 router.put('/:id', (req, res, next) => {
