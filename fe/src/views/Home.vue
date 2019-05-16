@@ -1,5 +1,61 @@
 <template>
   <v-container fluid>
+<div class="text-xs-center">
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <template v-slot:activator="{ on }">
+        <v-btn
+          color="blue lighten-2"
+          dark
+          v-on="on"
+        >
+          Loggggin
+        </v-btn>
+      </template>
+
+      <v-card>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
+          Loggggin
+        </v-card-title>
+
+        <v-card-text>
+          <v-text-field
+            v-model="UserID"
+            label="User ID"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="password"
+            label="Password"
+            required
+          ></v-text-field>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-btn
+          to="/signup"
+          flat>
+            signup
+          </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            flat
+          >
+            Login
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
+
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
         <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
