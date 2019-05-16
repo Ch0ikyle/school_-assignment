@@ -10,12 +10,13 @@
             <v-text-field
                 v-model="email"
                 label="이메일을 입력하세요"
-
+                rule="[rules.email]"
             >
             </v-text-field>
             <v-text-field
                 v-model="password"
                 label="패스워드를 입력하세요"
+                rule="[rules.password]"
                 type="password"
             >
             </v-text-field>
@@ -54,9 +55,11 @@ export default {
   methods: {
     signup () {
       console.log(this.email, this.password)
-      axios.post('http://localhost:3000/api/user', {
+      axios.post('http://localhost:3000/api/user/signup2', {
         email: this.email,
-        password: this.password
+        password: this.password,
+        name: this.name,
+        age: this.age
         // user: 'postMan'
       })
         .then((r) => {
@@ -64,6 +67,8 @@ export default {
           console.log('사용자 등록 완료');
           this.email = ''
           this.password = ''
+          this.name = ''
+          this.age = ''
         })
         .catch((e) => {
           console.error(e.message)
